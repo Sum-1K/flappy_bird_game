@@ -9,6 +9,7 @@ background-color: #d3ade9;
 {
 
     position: relative;
+    top: 100px;
     width: 800px;
     height: 600px;
     background-image: url('bg1.png');
@@ -49,7 +50,7 @@ background-color: #d3ade9;
     top: 200px;
     left: 325px;
     background: rgba(0,0,0,0.7);
-    
+    font-family: monospace;
     color: white;
     padding: 20px;
     border-radius: 10px;
@@ -57,6 +58,7 @@ background-color: #d3ade9;
     display: none;
 }
 #retry-button{
+    font-family: monospace;
     margin-top: 10px;
     padding: 10px 20px;
     background: red;
@@ -65,15 +67,17 @@ background-color: #d3ade9;
     cursor: pointer;
 }
 #watermark{
+    font-family: "Calisto MT";
     position: absolute;
     bottom: 20px;
     right: 20px;
-    font-size: 40px;
+    font-size: 20px;
     color: rgba(255,255,255,0.5);
     text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
     pointer-events: none;
 }
 #instructions{
+    font-family: monospace;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -85,10 +89,24 @@ background-color: #d3ade9;
     border-radius: 10px;
 }
 #start-button{
+    font-family: monospace;
     margin-top: 10px;
     padding: 10px 20px;
     background: green;
     border: none;
     color: white;
     cursor: pointer;
+}
+
+.glow {
+    animation: glowEffect 2s ease-in-out;
+}
+
+@keyframes glowEffect {
+    0% {
+        text-shadow: 0 0 50px #fff, 0 0 50px #ffbf00, 0 0 30px #ffbf00, 0 0 40px #ffbf00;
+    }
+    100% {
+        text-shadow: none;
+    }
 }
