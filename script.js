@@ -13,11 +13,12 @@ const swooshsound=document.getElementById('swoosh-sound');
 
 let birdTop=250;
 let birdLeft=50;
-let gravity = 5;
+let gravity = 3;
 let gameSpeed = 10;
 let isGameOver=false;
 let score=0;
 let pipePassed=false;
+
 
 
 const pipes=document.querySelectorAll('.pipe');
@@ -32,10 +33,11 @@ function initializeGame(){
     scoreDisplay.innerText=`Score: ${score}`;
     isGameOver=false;
     
-    bird.style.border = "2px solid red";
+    //bird.style.border = "2px solid red";
 
     pipes.forEach(pipe => {
-            pipe.style.left = (parseInt(pipe.style.left)+1600)+"px";
+            pipe.style.left = `${Math.random() * 300 + 800}px`;
+            pipe.pipePassed=false;  //yaha
         });
         gameLoop();
 }
@@ -68,6 +70,7 @@ function gameOver(){
 
 
 //game loop
+
 function gameLoop(){
     
    if(isGameOver)
@@ -82,8 +85,7 @@ function gameLoop(){
         gameOver();
     }
 
-    pipes.forEach(pipe =>
-        {
+    pipes.forEach(pipe => {
             let pipeLeft=parseInt(pipe.style.left);
             if(pipeLeft>-60){
                 pipe.style.left = (pipeLeft-gameSpeed) + "px";
@@ -98,23 +100,32 @@ function gameLoop(){
             }
             
             // bird keeps moving
-            if(!pipePassed&&pipeLeft+150<birdLeft)
+            if(!pipePassed&&pipeLeft+60<birdLeft)
             {
                 score++;
                 pointsound.play();
                 scoreDisplay.innerText=`Score: ${score}`;
-                pipe.pipePassed=true;
+                pipePassed=true;  
+                
+                if (score % 10 === 0) {
+                    scoreDisplay.classList.add("glow");
+                    setTimeout(() => {
+                        scoreDisplay.classList.remove("glow");
+                    }, 2000);
+                }
             }
             }
             else{
-                pipe.style.left="800px";
-                pipe.pipePassed=false;
+                pipe.style.left="2400px";
+                pipePassed=false;
             }
-            pipe.style.border = "2px solid blue";
-        }
-        );
+            //pipe.style.border = "2px solid blue";
+        });
         requestAnimationFrame(gameLoop);
 }
+
+
+
 
 document.addEventListener("keydown", jump);
 retryButton.addEventListener("click", resetGame);
