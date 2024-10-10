@@ -22,7 +22,7 @@ let pipePassed=false;
 
 
 const pipes=document.querySelectorAll('.pipe');
-
+const pipeGap = 600;
 // initialise the game
 
 function initializeGame(){
@@ -34,9 +34,9 @@ function initializeGame(){
     isGameOver=false;
     
     //bird.style.border = "2px solid red";
-
-    pipes.forEach(pipe => {
-            pipe.style.left = `${Math.random() * 300 + 800}px`;
+    let initialLeft = 800; 
+    pipes.forEach((pipe, index) => {
+            pipe.style.left = `${initialLeft + index * pipeGap}px`;
             pipe.pipePassed=false;  //yaha
         });
         gameLoop();
@@ -116,7 +116,8 @@ function gameLoop(){
             }
             }
             else{
-                pipe.style.left="2400px";
+                let index = Array.from(pipes).indexOf(pipe);
+                pipe.style.left=`${800 + pipes.length * pipeGap}px`;
                 pipePassed=false;
             }
             //pipe.style.border = "2px solid blue";
