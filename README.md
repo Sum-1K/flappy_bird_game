@@ -1,2 +1,2 @@
 # flappy_bird_game
-simple flappy bird using html, css, js
+simple flappy bird using HTML, CSS, JavaScript
