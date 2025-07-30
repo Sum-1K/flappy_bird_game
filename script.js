@@ -22,7 +22,7 @@ let pipePassed=false;
 
 
 const pipes=document.querySelectorAll('.pipe');
-const pipeGap = 600;
+
 // initialise the game
 
 function initializeGame(){
@@ -34,9 +34,9 @@ function initializeGame(){
     isGameOver=false;
     
     //bird.style.border = "2px solid red";
-    let initialLeft = 800; 
-    pipes.forEach((pipe, index) => {
-            pipe.style.left = `${initialLeft + index * pipeGap}px`;
+
+    pipes.forEach(pipe => {
+            pipe.style.left = `${Math.random() * 300 + 800}px`;
             pipe.pipePassed=false;  //yaha
         });
         gameLoop();
@@ -105,19 +105,11 @@ function gameLoop(){
                 score++;
                 pointsound.play();
                 scoreDisplay.innerText=`Score: ${score}`;
-                pipePassed=true;  
-                
-                if (score % 10 === 0) {
-                    scoreDisplay.classList.add("glow");
-                    setTimeout(() => {
-                        scoreDisplay.classList.remove("glow");
-                    }, 2000);
-                }
+                pipePassed=true;                
             }
             }
             else{
-                let index = Array.from(pipes).indexOf(pipe);
-                pipe.style.left=`${800 + pipes.length * pipeGap}px`;
+                pipe.style.left="800px";
                 pipePassed=false;
             }
             //pipe.style.border = "2px solid blue";

@@ -1,8 +1,16 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body{
 margin:0;
 padding: 0;
 box-sizing: border-box;
 background-color: #d3ade9;
+font-family: Arial, sans-serif;
 }
 
 #game-container
@@ -98,15 +106,32 @@ background-color: #d3ade9;
     cursor: pointer;
 }
 
-.glow {
-    animation: glowEffect 2s ease-in-out;
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: white;
+  color: #333;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-@keyframes glowEffect {
-    0% {
-        text-shadow: 0 0 50px #fff, 0 0 50px #ffbf00, 0 0 30px #ffbf00, 0 0 40px #ffbf00;
-    }
-    100% {
-        text-shadow: none;
-    }
+.navbar h1 {
+  font-size: 1.5rem;
+}
+
+.nav-links a {
+  margin-left: 1rem;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
 }

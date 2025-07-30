@@ -9,7 +9,16 @@
     
 </head>
 <body>
-    
+    <header class="navbar">
+    <h1>MyCodingSite</h1>
+    <nav class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">Games</a>
+      <a href="#">Profile</a>
+    </nav>
+  </header>
+
+  <div class="content">
 
     <div id="game-container">
             <div id="bird">
@@ -20,13 +29,12 @@
                 <h2>Game Over</h2>
                 <button id="retry-button">Retry</button>
             </div>
-            
-            <div class="pipe" style="height: 220px; top: 0px;  transform: rotate(180deg)"></div>
-            <div class="pipe" style="height: 250px; top: 400px;"></div>
-            <div class="pipe" style="height: 220px; top: 200px;  transform: rotate(180deg)"></div>
-            <div class="pipe" style="height: 250px; top: 300px;"></div>
-            <div class="pipe" style="height: 220px; top: -100px;  transform: rotate(180deg)"></div>
-            <div class="pipe" style="height: 250px; top: 400px;"></div>
+            <div class="pipe" style="height: 220px; top: 0; left: 500px; transform: rotate(180deg)">
+                
+            </div>
+            <div class="pipe" style="height: 250px; top: 400px; left: 200px">
+               
+            </div>
             <div id="watermark">Made by Sum_1</div>
             <div id="instructions">
                 <h2>Instructions</h2>
@@ -35,12 +43,13 @@
                 <button id="start-button">Play</button>
             </div>
     </div>
+    </div>
     
     
-    <audio id="flap-sound" src="sounds/flap.mp3"></audio>
-    <audio id="hit-sound" src="sounds/hit.mp3"></audio>
-    <audio id="point-sound" src="sounds/point.mp3"></audio>
-    <audio id="swoosh-sound" src="sounds/swoosh.mp3"></audio>
+    <audio id="flap-sound" src="./flap.mp3"></audio>
+    <audio id="hit-sound" src="./hit.mp3"></audio>
+    <audio id="point-sound" src="./point.mp3"></audio>
+    <audio id="swoosh-sound" src="./swoosh.mp3"></audio>
 </body>
 <script src="script.js"></script>
 </html>
